@@ -13,8 +13,7 @@
         <li><a href="<%= root_path %>">Home</a></li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <%= render_proper_partial_based_on_user_session_status %>
       </ul>
     </div>
   </div>

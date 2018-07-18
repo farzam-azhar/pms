@@ -15,4 +15,12 @@ module ApplicationHelper
 		    flash_type.to_s
    	end
 	end
+
+	def render_proper_partial_based_on_user_session_status
+		if !user_signed_in?
+      render 'shared/logged_out_user.html.erb'
+    else
+      render 'shared/logged_in_user.html.erb'
+    end
+	end
 end
