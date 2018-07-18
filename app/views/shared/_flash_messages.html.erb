@@ -1,0 +1,28 @@
+<div id="messages" class="">
+ <% flash.each_with_index do |(k,v),i| %>
+   <% next if k.to_s == 'timedout' %>
+   <div id="message-<%= i %>" class="actual-message">
+     <div class="alert <%= bootstrap_class_for(k.to_s.sub('_stay', '')) %>">
+       <% if v.is_a?(Array) %>
+         <ul>
+           <% v.each do |vv| %>
+             <li><%= vv %></li>
+           <% end %>
+         </ul>
+       <% else %>
+         <%= raw v %>
+       <% end %>
+     </div>
+   </div>
+ <% end %>
+</div>
+
+<script type="text/javascript">
+ window.setTimeout(function()
+ {
+   $("#messages").fadeTo(500, 0).slideUp(300, function()
+   {
+     $(this).remove();
+   });
+ }, 1500);
+</script>
