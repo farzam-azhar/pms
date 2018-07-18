@@ -5,3 +5,31 @@
 .mt-5{
 	margin-top: 5%;
 }
+
+.mb-5{
+	margin-bottom: 5%;
+}
+
+.field_with_errors{
+	color: red
+}
+
+.field_with_errors input{
+  border: 1px solid red;
+}
+
+.field_with_errors select{
+  border: 1px solid red;
+}
+
+#error_explanation{
+	border: 2px solid crimson;
+  padding: 13px;
+  border-radius: 4px;
+  margin-bottom: 4%;
+  background: antiquewhite;
+}
+
+#error_explanation h2, ul{
+	color: crimson;
+}
