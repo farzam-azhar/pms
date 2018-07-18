@@ -20,6 +20,8 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'devise-bootstrapped'
 gem "paperclip", "~> 6.0.0"
+gem "nested_form"
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
