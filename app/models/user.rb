@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_one :photo, class_name: 'Attachment', as: :attachable
+ 	accepts_nested_attributes_for :photo
+
   validates :username, presence: true
   validates :username, length: { in: 6..15 }
   validates :contact, format: { 

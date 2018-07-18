@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 
+  attachable: one
+  attachable_type: Attachable
+
+two:
+  data: 
+  attachable: two
+  attachable_type: Attachable
