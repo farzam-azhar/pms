@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   enum status: [:enabled, :disabled]
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  enum role: [:user, :manager, :admin]
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  scope :all_users_except_admin, -> { all.where(admin: false) }
+  scope :all_users_except_admin, -> { all.where.not(role: :admin) }
 
   has_one :photo, class_name: 'Attachment', as: :attachable
   accepts_nested_attributes_for :photo
