@@ -16,4 +16,16 @@ class User < ApplicationRecord
     message: 'given format not supported.' 
   }
   validates :gender, presence: true, inclusion: { in: %w(M F), message: 'You must select Male or Female Only.' }
+  
+  def active_for_authentication?
+    super && enabled?
+  end
+  
+  def inactive_message
+    if enabled?
+      super
+    else
+      :not_enabled
+    end
+  end
 end
