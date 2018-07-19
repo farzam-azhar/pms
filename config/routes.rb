@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   
   namespace 'admin' do
     root 'users#index'
-    resources :users
+    resources :users do
+      member do
+        get 'enable_or_disable_user'
+      end
+    end
   end
 end
