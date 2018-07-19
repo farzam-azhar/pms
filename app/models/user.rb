@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         
+  scope :all_users_except_admin, -> { all.where(admin: false) }
 
   has_one :photo, class_name: 'Attachment', as: :attachable
   accepts_nested_attributes_for :photo

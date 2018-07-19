@@ -23,4 +23,12 @@ module ApplicationHelper
       render 'shared/logged_out_user.html.erb'
     end
   end
+  
+  def render_admin_links
+    if user_signed_in? && current_user.admin?
+      content_tag :li do
+        link_to 'Manage Users', admin_users_path
+      end
+    end
+  end
 end

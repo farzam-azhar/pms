@@ -18,4 +18,8 @@ module UsersHelper
       image_tag current_user.photo.data.url(:thumb), class: "img-responsive img-circle pull-right pd-l-8 mt_5"
     end
   end
+  
+  def get_gender(gender)
+    gender == 'M' ? 'Male' : 'Female'
+  end
 end
