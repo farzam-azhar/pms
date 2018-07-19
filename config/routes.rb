@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :users do
       member do
         get 'enable_or_disable_user'
+        get 'promote_to_manager_or_demote_to_user'
       end
     end
   end

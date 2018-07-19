@@ -3,5 +3,8 @@
   <td><%= user.email %></td>
   <td><%= get_gender(user.gender) %></td>
   <td><%= user.contact %></td>
-  <td><%= get_enable_or_disable_link(user) %> / Edit / Destroy</td>
+  <td>
+    <%= get_enable_or_disable_link(user) %> / 
+    <%= promote_to_manager_or_demote_to_user_link(user) %> / Edit / Destroy
+   </td>
 </tr>
