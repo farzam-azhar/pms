@@ -1,2 +1,11 @@
-<li><a href="<%= new_user_registration_path %>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-<li><a href="<%= new_user_session_path %>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+<li>
+  <%= link_to new_user_registration_path do %>
+    <span class="glyphicon glyphicon-user"></span> Sign Up
+  <% end %>
+</li>
+
+<li>
+  <%= link_to new_user_session_path do %>
+    <span class="glyphicon glyphicon-log-in"></span> Login
+  <% end %>
+</li>

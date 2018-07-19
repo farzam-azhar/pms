@@ -1,13 +1,13 @@
-<li class="mt-1"> 
-  <a href="#"> 
+<li class="mt-1">
+  <%= link_to '#' do %>
     <strong> Welcome, <%= current_user.username %> </strong>
-  </a> 
+  <% end %>
 </li>
 
-<li> 
-  <a href="<%= edit_user_registration_path %>"> 
-    <span class=" glyphicon glyphicon-user"></span> Edit Profile
-  </a> 
+<li>
+  <%= link_to edit_user_registration_path do %>
+    <span class="glyphicon glyphicon-user"></span> Edit Profile
+  <% end %>
 </li>
 
 <li>
