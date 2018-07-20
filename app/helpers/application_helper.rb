@@ -16,7 +16,7 @@ module ApplicationHelper
     end
   end
 
-  def render_proper_partial_based_on_user_session_status
+  def render_session_link
     if user_signed_in?
       render 'shared/logged_in_user.html.erb'
     else
