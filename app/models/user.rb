@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  attr_accessor :validate_photo
+  
   enum status: [:enabled, :disabled]
   enum role: [:user, :manager, :admin]
 
@@ -17,6 +19,12 @@ class User < ApplicationRecord
   }
   validates :gender, presence: true, inclusion: { in: %w(M F), message: 'You must select Male or Female Only.' }
   
+  validate :photo_must_exist, if: :validate_photo?
+  
+  def photo_must_exist
+    errors.add(:user, "Photo Must Exist") if validate_photo?
+  end
+  
   def active_for_authentication?
     super && enabled?
   end
@@ -27,5 +35,9 @@ class User < ApplicationRecord
     else
       :not_enabled
     end
+  end
+  
+  def validate_photo?
+    validate_photo == 'true' || validate_photo == true
   end
 end
