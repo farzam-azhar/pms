@@ -37,7 +37,7 @@
 
         <div class="form-group">
           <%= f.label :gender %><br />
-          <%= f.select :gender, [["Male", "M"], ["Female", "F"]], { prompt: 'Select Gender' }, { class: "form-control" } %>
+          <%= f.select :gender, select_options_for_gender, gender_select_prompt, { class: "form-control" } %>
         </div>
 
         <div class="form-group">
@@ -67,11 +67,6 @@
         <% end %>
         <%= f.submit 'Set Profile Picture', class: 'btn-lg btn-block btn btn-primary'%>
       <% end %>
-      
-      <h2>Profile Picture</h2>
-      <hr>
-      
-      <%= image_tag current_user.photo.data.url(:medium) %>
     </div>
   </div>
 </div>
