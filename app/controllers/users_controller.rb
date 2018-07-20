@@ -13,7 +13,6 @@ class UsersController < ApplicationController
         redirect_to edit_user_registration_path, alert: 'Some Problem occured while updating Profile Picture.'
       end
     end
-    
   end
   
   private
