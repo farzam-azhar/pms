@@ -1,10 +1,11 @@
 <% if resource.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(resource.errors.count, "error") %> prohibited this <%= resource_name %> from being submitted:</h2>
+  <div id="error_explanation" class="alert alert-danger alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <h2 class="errors_heading"><%= pluralize(resource.errors.count, "error") %> prohibited this <%= resource_name %> from being submitted:</h2>
 
     <ol>
       <% resource.errors.full_messages.each do |msg| %>
-        <li style="font-size: 17px; color: red; margin-left: 2%;"><%= msg %></li>
+        <li class="errors_li"><%= msg %></li>
       <% end %>
     </ol>
   </div>
