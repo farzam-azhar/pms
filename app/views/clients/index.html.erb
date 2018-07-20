@@ -1,2 +1,18 @@
-<h1>Clients#index</h1>
-<p>Find me in app/views/clients/index.html.erb</p>
+<div class="container">
+  <div class="row mb-2">
+    <div class="col-md-offset-5">
+      <h1 class="pull-left">Our Clients</h1>
+      <div class="pull-right mr-2">
+        <%= link_to new_client_path, { remote: true, data: { toggle: 'model', target: '#myModel' }, class: 'btn btn-primary mt-8' } do %>
+          <span class=" glyphicon glyphicon-plus"></span> Create New Client
+        <% end %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row" id="clients">
+    <%= render @clients %>
+  </div>
+  
+  <div id="myModal" class="modal fade" role="dialog"> </div>
+</div>

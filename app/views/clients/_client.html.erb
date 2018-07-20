@@ -1,0 +1,16 @@
+<div class="col-md-4 mb-5" id="client_<%= client.id %>">
+  <div class="card">
+    <div class="card_container">
+      <div id="icons" class="pull-right mt-4">
+        <%= link_to [:edit, client], remote: true, data: { toggle: "tooltip" }, title: 'Edit Client', class: 'green-color' do %>
+          <span class="glyphicon glyphicon-edit mr-8px"></span>
+        <% end %>
+        
+        <%= link_to '&times;'.html_safe, client, method: :delete, class: 'close crimson-color', data: { dismiss: "alert", toggle: "tooltip", confirm: 'Are you sure?' }, title: 'Remove Client from System', aria: { label: "close" } %>
+      </div>
+      <h4><b><%= client.name %></b></h4> 
+      <p><%= client.email %></p>
+      <p><%= client.country_name %></p> 
+    </div>
+  </div>
+</div>
