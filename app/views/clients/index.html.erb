@@ -3,9 +3,7 @@
     <div class="col-md-offset-5">
       <h1 class="pull-left">Our Clients</h1>
       <div class="pull-right mr-2">
-        <%= link_to new_client_path, { remote: true, data: { toggle: 'model', target: '#myModel' }, class: 'btn btn-primary mt-8' } do %>
-          <span class=" glyphicon glyphicon-plus"></span> Create New Client
-        <% end %>
+        <%= add_client(new_client_path) if valid_role? %>
       </div>
     </div>
   </div>

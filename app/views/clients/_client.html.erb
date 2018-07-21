@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card_container">
       <div id="icons" class="pull-right mt-4">
-        <%= render 'links', client: client if current_user.admin? or current_user.manager?%>
+        <%= render 'links', client: client if valid_role? %>
       </div>
       <h4><b><%= client.name %></b></h4> 
       <p><%= client.email %></p>
