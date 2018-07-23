@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  attr_accessor :validate_photo
   attr_writer :login
   
   enum status: [:enabled, :disabled]
@@ -19,24 +18,14 @@ class User < ApplicationRecord
     with: /((\+92)|(0092))-{0,1}\d{3}-{0,1}\d{7}$|^\d{11}$|^\d{4}-\d{7}$/, multiline: true, 
     message: 'given format not supported.' 
   }
-  validates :gender, presence: true, inclusion: { in: %w(Male Female), message: 'You must select Male or Female Only.' }
-  
-  validate :photo_must_exist, if: :validate_photo?
-  
-  def photo_must_exist
-    errors.add(:user, "Photo Must Exist") if validate_photo?
-  end
-  
+  validates :gender, presence: true, inclusion: { in: self.genders.keys, message: 'You must select Male or Female Only.' }
+
   def active_for_authentication?
     super && enabled?
   end
   
   def inactive_message
     enabled? ? super : :not_enabled
-  end
-  
-  def validate_photo?
-    validate_photo == 'true' || validate_photo == true
   end
   
   def login
@@ -46,7 +35,7 @@ class User < ApplicationRecord
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
-      where(conditions.to_h).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      where(conditions.to_h).where(["lower(username) = :value OR lower(email) = :value", { value: login.downcase }]).first
     elsif conditions.has_key?(:username) || conditions.has_key?(:email)
       where(conditions.to_h).first
     end
@@ -58,5 +47,9 @@ class User < ApplicationRecord
   
   def toggle_role!
     self.manager? ? self.user! : self.manager!
+  end
+
+  def image(size = :thumb)
+    image = self.photo.present? ? self.photo.data.url(size) : 'default'
   end
 end

@@ -13,12 +13,7 @@ class ClientsController < ApplicationController
   end
   
   def create
-    @client = Client.new(client_params)
-    if @client.save
-      @check = true
-    else
-      @check = false
-    end
+    @client = Client.create(client_params)
     respond_with @client
   end
   
@@ -28,11 +23,7 @@ class ClientsController < ApplicationController
   end
   
   def update
-    if @client.update_attributes(client_params)
-      @check = true
-    else
-      @check = false
-    end
+    @client.update_attributes(client_params)
     respond_with @client
   end
   

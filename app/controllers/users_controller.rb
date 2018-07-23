@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
   def set_profile_picture
-    current_user.validate_photo = true if params[:user][:photo_attributes][:data].nil?
-    
     if current_user.update(photo_params)
       redirect_to edit_user_registration_path, notice: 'Profile picture is successfully updated'
     else

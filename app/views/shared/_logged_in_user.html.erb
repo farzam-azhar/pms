@@ -1,7 +1,7 @@
 <li class="mt-1">
   <%= link_to '#' do %>
     <strong> Welcome, <%= current_user.username %> </strong>
-    <%= user_profile_picture %>
+    <%= image_tag current_user.image, class: "img-responsive img-circle pull-right pd-l-8 mt_5 img-size" %>
   <% end %>
 </li>
 

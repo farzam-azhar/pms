@@ -4,7 +4,7 @@ module ClientsHelper
   end
   
   def add_client(url)
-    link_to url, { remote: true, data: { toggle: 'model', target: '#myModel' }, class: 'btn btn-primary mt-8' } do
+    link_to url, { remote: true, data: { toggle: 'modal', target: '#client-modal' }, class: 'btn btn-primary mt-8' } do
       "<span class='glyphicon glyphicon-plus'></span> Create New Client".html_safe
     end
   end

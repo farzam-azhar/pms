@@ -6,9 +6,8 @@ module Admin::UsersHelper
   end
   
   def update_role_link(user)
-    role = user.manager?  ? 'Demote to' : 'Promote to'
-    resource = user.manager?  ? ' User' : ' Manager'
+    role = user.manager?  ? 'Demote to User' : 'Promote to Manager'
     
-    link_to role + resource, update_role_admin_user_path(user), data: { toggle: "tooltip" }, title: role + resource, remote: true
+    link_to role, update_role_admin_user_path(user), data: { toggle: "tooltip" }, title: role, remote: true
   end
 end

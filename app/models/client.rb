@@ -4,6 +4,6 @@ class Client < ApplicationRecord
   validates :country_code, presence: true
   
   def country_name
-    country = ISO3166::Country[country_code]
+    ISO3166::Country[country_code]
   end
 end
