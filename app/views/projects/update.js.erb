@@ -1,0 +1,9 @@
+<% unless @project.errors.present? %>
+  $('#project-modal').modal('toggle');
+  $("#project-<%= @project.id %>").fadeOut(200).fadeIn(500, function(){
+    $(this).replaceWith("<%= j render @project %>");
+  });
+<% else %>
+  $('#project-error').empty();
+  $('#project-error').append("<%= j render 'shared/errors', resource: @project, resource_name: 'Project' %>");
+<% end %>

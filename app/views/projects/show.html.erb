@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="ml-1">
+      <h1><%= @project.title %></h1>
+    </div>
+  </div>
+
+  <div class="card unset-height">
+    <div class="card_container custom-padding">
+      <div id="icons" class="pull-right mt-4">
+      </div>
+      <div class="row mb-1">
+        <div class="col-md-3">
+          <p class="first-p">Estimated Price</p>
+          <p class="second-p"><%= @project.estimated_price %> USD</p>
+        </div>
+
+        <div class="col-md-3">
+          <p class="first-p">Time Frame</p>
+          <p class="second-p"><%= time_ago_in_words(@project.end_date).capitalize %></p>
+        </div>
+
+        <div class="col-md-3">
+          <p class="first-p">Client</p>
+          <p class="second-p"><%= @project.client.name %></p>
+        </div>
+
+        <div class="col-md-2">
+          <p class="first-p">Started at </p>
+          <p class="second-p"><%= @project.created_at.strftime("%m-%d-%Y") %></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+          <p class="first-p">Description</p>
+          <p class="second-p"><%= @project.description %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

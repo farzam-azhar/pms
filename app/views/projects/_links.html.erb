@@ -1,0 +1,5 @@
+<%= link_to [:edit, project], remote: true, data: { toggle: "tooltip" }, title: 'Edit Project', class: 'green-color' do %>
+  <span class="glyphicon glyphicon-edit mr-8px"></span>
+<% end %>
+
+<%= link_to '&times;'.html_safe, project, method: :delete, class: 'close crimson-color', data: { dismiss: "alert", toggle: "tooltip", confirm: 'Are you sure?' }, title: 'Remove Project from System', aria: { label: "close" } %>

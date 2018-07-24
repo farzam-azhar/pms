@@ -23,6 +23,7 @@ gem "paperclip", "~> 6.0.0"
 gem "nested_form"
 gem 'simple_form'
 gem 'country_select'
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

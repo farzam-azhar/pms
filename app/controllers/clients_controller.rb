@@ -8,7 +8,6 @@ class ClientsController < ApplicationController
   
   def new
     @client = Client.new
-    @msg = "Create"
     respond_with @client
   end
   
@@ -18,7 +17,6 @@ class ClientsController < ApplicationController
   end
   
   def edit
-    @msg = "Edit"
     respond_with @client
   end
   

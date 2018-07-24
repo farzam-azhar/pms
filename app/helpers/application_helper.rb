@@ -31,4 +31,8 @@ module ApplicationHelper
       end
     end
   end
+
+  def modal_form_header(object)
+    object.persisted? ? 'Edit' : 'Create'
+  end
 end

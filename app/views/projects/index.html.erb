@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-5">
+      <h1 class="pull-left">Our Projects</h1>
+      <div class="pull-right mr-2">
+        <%= add_project(new_project_path) if valid_role? %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4" id="projects">
+    <%= render @projects %>
+  </div>
+
+  <div id="project-modal" class="modal fade" role="dialog"></div>
+</div>
