@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="row">
+    <div class="ml-2">
+      <h1>Add Payments</h1>
+    </div>
+  </div>
+
+  <div class="card unset-height">
+    <div class="card_container custom-padding">
+      <div id="icons" class="pull-right mt-4">
+        <%= link_to new_project_payment_path(@project), remote: true, data: { toggle: "tooltip" }, title: 'Add Payment', class: 'btn btn-success' do %>
+          <span class="glyphicon glyphicon-plus"></span>
+        <% end %>
+      </div>
+      <div class="row mb-1">
+        <table class="table table-striped table-hover display" id="payment-table">
+          <thead>
+            <tr>
+              <th>Amount</th>
+              <th>Created by</th>
+              <th>Method</th>
+              <th>Created At</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tbody id="payments">
+            <%= render @project.payments %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>

@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180723054552) do
+
+ActiveRecord::Schema.define(version: 20180724075536) do
 
   create_table "attachments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name"
@@ -31,6 +32,17 @@ ActiveRecord::Schema.define(version: 20180723054552) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_clients_on_email", unique: true
+  end
+
+  create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.float "amount", limit: 24
+    t.string "method", limit: 10
+    t.bigint "created_by_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["created_by_id"], name: "index_payments_on_created_by_id"
+    t.index ["project_id"], name: "index_payments_on_project_id"
   end
 
   create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -66,5 +78,7 @@ ActiveRecord::Schema.define(version: 20180723054552) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "payments", "projects"
+  add_foreign_key "payments", "users", column: "created_by_id"
   add_foreign_key "projects", "clients"
 end

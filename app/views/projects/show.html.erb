@@ -39,4 +39,9 @@
       </div>
     </div>
   </div>
+  <hr />
+
+  <%= render 'payments_table' if valid_role? %>
+
+  <div id="payment-modal" class="modal fade" role="dialog"></div>
 </div>
