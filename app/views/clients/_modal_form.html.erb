@@ -1,0 +1,21 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title"><%= msg %> Client</h4>
+    </div>
+    <div class="modal-body">
+      <div id="client_error"></div>
+      
+      <%= simple_form_for client, remote: true do |f| %>
+        <%= f.input :name %>
+        <%= f.input :email %>
+        <%= f.input :country_code, prompt: 'Select Country' %>
+        <%= f.submit class: 'btn btn-success' %>
+      <% end %>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>

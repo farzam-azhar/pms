@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   
   namespace 'admin' do
     root 'users#index'
-    resources :users do
+    resources :users, only: [:index] do
       member do
-        get 'enable_or_disable_user'
-        get 'promote_to_manager_or_demote_to_user'
+        get 'update_status'
+        get 'update_role'
       end
     end
   end
+  
+  resources :clients
 end

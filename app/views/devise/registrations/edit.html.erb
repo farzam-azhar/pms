@@ -4,7 +4,7 @@
       <h1>Edit <%= resource_name.to_s.humanize %></h1>
       <hr>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= devise_error_messages! %>
+        <%= render 'shared/errors', resource: resource, resource_name: 'User' %>
 
         <div class="form-group">
           <%= f.label :username %><br />
@@ -37,7 +37,7 @@
 
         <div class="form-group">
           <%= f.label :gender %><br />
-          <%= f.select :gender, select_options_for_gender, gender_select_prompt, { class: "form-control" } %>
+          <%= f.select :gender, User.genders.keys, { prompt: 'Select Gender' }, { class: "form-control" } %>
         </div>
 
         <div class="form-group">
@@ -61,9 +61,10 @@
     <div class="col-sm-offset-5">
       <h1>Edit Profile Picture</h1>
       <hr>
-      <%= simple_form_for current_user, url: set_profile_picture_path, html: { class: "form-group" }, method: :post do |f| %>
-        <%= f.simple_fields_for :photo, new_or_existing_photo(current_user) do |p| %>
-          <%= p.input :data, input_html: { class: 'form-control' }, label: 'Set Profile Picture' %>
+      <%= nested_form_for current_user, url: set_profile_picture_path, html: { multipart: true }, method: :post do |f| %>
+        <%= f.fields_for :photo, new_or_existing_photo(current_user) do |p| %>
+          <%= p.label 'Set Profile Picture' %>
+          <%= p.file_field :data, class: 'form-control', required: true %> <br />
         <% end %>
         <%= f.submit 'Set Profile Picture', class: 'btn-lg btn-block btn btn-primary'%>
       <% end %>

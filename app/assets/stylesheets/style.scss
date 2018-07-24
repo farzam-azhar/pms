@@ -1,59 +1,114 @@
-.navbar{
+.navbar {
   border-radius: 0px !important;
 }
 
-.mt-5{
+.mt-5 {
   margin-top: 5%;
 }
 
-.mb-5{
+.mb-5 {
   margin-bottom: 5%;
 }
 
-.field_with_errors{
+.field_with_errors {
   color: red
 }
 
-.field_with_errors input{
+.field_with_errors input {
   border: 1px solid red;
 }
 
-.field_with_errors select{
+.field_with_errors select {
   border: 1px solid red;
 }
 
-#error_explanation{
-  border: 2px solid crimson;
-  padding: 13px;
-  border-radius: 4px;
-  margin-bottom: 4%;
+#error-explanation {
   background: antiquewhite;
 }
 
-#error_explanation h2, ul{
+#error-explanation h2, ul {
   color: crimson;
 }
 
-.mt-1{
+.mt-1 {
   margin-top: 0.4%;
 }
 
-.pd-l-8{
+.pd-l-8 {
   padding-left: 8px;
 }
 
-.mt_5{
+.mt_5 {
   margin-top: -5%;
 }
 
-.ml-5{
+.ml-5 {
   margin-left: 5%;
 }
 
-.mb-4{
+.mb-4 {
   margin-bottom: 4%;
 }
 
-.w-20{
+.w-20 {
   width: 23%;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 100%;
+  height: 114px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+}
+
+.card-container {
+  padding: 2px 16px;
+}
+
+.mb-2 {
+  margin-bottom: 2%;
+}
+
+.mt-8 {
+  margin-top: 8%;
+}
+
+.mr-2 {
+  margin-right: 2%;
+}
+
+.errors-li {
+  font-size: 14px;
+  color: red;
+  margin-left: 2%;
+}
+
+.errors-heading {
+  font-size: 28px;
+}
+
+.mt-4 {
+  margin-top: 3%;
+}
+
+.crimson-color {
+  color: crimson;
+  opacity: unset;
+}
+
+.green-color {
+  color: green;
+}
+
+.mr-8px {
+  margin-right: 8px;
+}
+
+.img-size {
+  width: 43px;
+  height: 35px;
 }

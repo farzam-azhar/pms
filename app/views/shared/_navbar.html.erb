@@ -11,10 +11,11 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="<%= root_path %>">Home</a></li>
+        <li><a href="<%= clients_path %>">Clients</a></li>
         <%= render_admin_links %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <%= render_proper_partial_based_on_user_session_status %>
+        <%= render_session_link %>
       </ul>
     </div>
   </div>
