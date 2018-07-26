@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180724131624) do
+ActiveRecord::Schema.define(version: 20180726095806) do
 
   create_table "assignments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
@@ -65,6 +65,17 @@ ActiveRecord::Schema.define(version: 20180724131624) do
     t.index ["client_id"], name: "index_projects_on_client_id"
   end
 
+  create_table "time_logs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "start_time", limit: 15
+    t.string "end_time", limit: 15
+    t.bigint "user_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_time_logs_on_project_id"
+    t.index ["user_id"], name: "index_time_logs_on_user_id"
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -92,4 +103,6 @@ ActiveRecord::Schema.define(version: 20180724131624) do
   add_foreign_key "payments", "projects"
   add_foreign_key "payments", "users", column: "created_by_id"
   add_foreign_key "projects", "clients"
+  add_foreign_key "time_logs", "projects"
+  add_foreign_key "time_logs", "users"
 end

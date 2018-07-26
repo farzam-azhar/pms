@@ -25,6 +25,7 @@ gem 'simple_form'
 gem 'country_select'
 gem 'bootstrap-datepicker-rails'
 gem 'jquery-turbolinks'
+gem 'bootstrap-timepicker-rails-addon', '~> 0.5.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

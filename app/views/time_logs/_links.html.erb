@@ -1,0 +1,7 @@
+<div class="ml-10">
+  <%= link_to [:edit, time_log], remote: true, data: { toggle: "tooltip" }, title: 'Edit Time Log', class: 'green-color' do %>
+    <span class="glyphicon glyphicon-edit"></span>
+  <% end %>
+
+  <%= link_to '&times;'.html_safe, time_log, method: :delete, class: 'close crimson-color no-float', data: { dismiss: "alert", toggle: "tooltip", confirm: 'Are you sure?' }, title: 'Remove Time Log from System', aria: { label: "close" }, remote: true %>
+</div>

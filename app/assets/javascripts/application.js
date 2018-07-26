@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require jquery
 //= require bootstrap-sprockets
+//= require bootstrap-timepicker
 //= require jquery_nested_form
 //= require bootstrap-datepicker
 //= require jquery.turbolinks

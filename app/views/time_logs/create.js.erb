@@ -1,0 +1,8 @@
+<% if @time_log.errors.present? %>
+  $('#time-logs-error').empty();
+  $('#time-logs-error').append("<%= j render 'shared/errors', resource: @time_log, resource_name: 'Time Log' %>");
+<% else %>
+  $('#time-log-modal').modal('toggle');
+  $("#time-logs").append("<%= j render @time_log %>");
+  $("#time-log-row-<%= @time_log.id %>").hide().fadeIn(1000);
+<% end %>

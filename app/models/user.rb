@@ -9,13 +9,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
          
   scope :except_admin, -> { where.not(role: :admin) }
-  scope :not_assigned_users, -> (project) { all - project.users }
+  scope :not_assigned_users, -> (project) { all - project.assigned_users }
 
   has_one :photo, class_name: 'Attachment', as: :attachable
   accepts_nested_attributes_for :photo
 
   has_many :assignments, dependent: :destroy
-  has_many :projects, through: :assignments
+  has_many :working_projects, through: :assignments, source: :project
+  has_many :time_logs, dependent: :destroy
+  has_many :logged_projects, through: :time_logs, source: :project
 
   validates :username, presence: true, length: { in: 6..15 }, uniqueness: true
   validates :contact, format: { 

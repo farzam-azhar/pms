@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row mb-2">
+    <div class="col-md-offset-5">
+      <h1 class="pull-left">Time Logs</h1>
+      <div class="pull-right mr-2">
+        <%= add_time_log(new_time_log_path) if user_signed_in? %>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'time_logs_table' %>
+
+  <div id="time-log-modal" class="modal fade" role="dialog"></div>
+</div>
