@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   resources :clients
   resources :projects do
     resources :payments, only: [:new, :create, :edit, :update, :destroy]
+    resources :assignments, only: [:new, :create, :edit, :update, :destroy]
   end
 end

@@ -166,3 +166,15 @@ div .second-p {
 #payment-table_length select {
   margin-left: 9.5%;
 }
+
+.ml-3 {
+  margin-left: 3%;
+}
+
+#assigned-users-table_length select {
+  margin-left: 9.5%;
+}
+
+#assigned-users-table_wrapper .row:first-child {
+  width: 92% !important;
+}

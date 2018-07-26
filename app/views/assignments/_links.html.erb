@@ -1,0 +1,7 @@
+<div class="ml-10">
+  <%= link_to [:edit, project, assignment], remote: true, data: { toggle: "tooltip" }, title: 'Edit Assignment', class: 'green-color' do %>
+    <span class="glyphicon glyphicon-edit"></span>
+  <% end %>
+
+  <%= link_to '&times;'.html_safe, [project, assignment], method: :delete, class: 'close crimson-color no-float', data: { dismiss: "alert", toggle: "tooltip", confirm: 'Are you sure?' }, title: 'Remove User from this Project', aria: { label: "close" }, remote: true %>
+</div>

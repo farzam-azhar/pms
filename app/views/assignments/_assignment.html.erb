@@ -1,0 +1,7 @@
+<tr id="assigned-user-row-<%= assignment.id %>">
+  <td><%= assignment.user.username %></td>
+  <td><%= assignment.role.humanize %></td>
+  <% if valid_role? %>
+    <td><%= render 'assignments/links', assignment: assignment, project: @project %></td>
+  <% end %>
+</tr>

@@ -1,0 +1,29 @@
+<div class="col-md-5">
+  <div class="row">
+    <div class="ml-3">
+      <h2><%= valid_role? ? 'Assign Users' : 'Assigned Users' %></h2>
+    </div>
+  </div>
+
+  <div class="card unset-height">
+    <div class="card_container custom-padding">
+      <%= add_assignment(@project) if valid_role? %>
+      <div class="row mb-1">
+        <table class="table table-striped table-hover display" id="assigned-users-table">
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Role</th>
+              <% if valid_role? %>
+                <th>Options</th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody id="assignments">
+            <%= render @project.assignments %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

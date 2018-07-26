@@ -15,5 +15,5 @@
 //= require bootstrap-sprockets
 //= require jquery_nested_form
 //= require bootstrap-datepicker
-//= require turbolinks
+//= require jquery.turbolinks
 //= require_tree .
