@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(version: 20180726095806) do
   end
 
   create_table "time_logs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "start_time", limit: 15
-    t.string "end_time", limit: 15
+    t.string "start_time", limit: 15, null: false
+    t.string "end_time", limit: 15, null: false
     t.bigint "user_id"
     t.bigint "project_id"
     t.datetime "created_at", null: false

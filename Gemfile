@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -23,9 +24,9 @@ gem "paperclip", "~> 6.0.0"
 gem "nested_form"
 gem 'simple_form'
 gem 'country_select'
-gem 'bootstrap-datepicker-rails'
 gem 'jquery-turbolinks'
-gem 'bootstrap-timepicker-rails-addon', '~> 0.5.1'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
