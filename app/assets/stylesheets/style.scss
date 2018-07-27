@@ -178,3 +178,88 @@ div .second-p {
 #assigned-users-table_wrapper .row:first-child {
   width: 92% !important;
 }
+
+.detail-box {
+  border: 1px solid #bbb;
+  margin: 37px;
+}
+
+.title-box {
+  background-color: #fdfdfd;
+  padding: 10px;
+
+  label {
+    color: #444;
+    margin: 0;
+    display: inline-block;
+  }
+}
+
+.comment-box {
+  padding: 10px;
+  border-top: 1px dotted #bbb;
+}
+
+.w-15 {
+  width: 15% !important;
+}
+
+.action-box .form-group * {
+  width: 100%;
+}
+
+.task-description {
+  margin-top: 10px 0;
+}
+
+.comment-list {
+  padding: 0;
+  list-style: none;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.comment-list li {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.comment-list li > div {
+  display: table-cell;
+}
+
+.commenter-image {
+  width: 30px;
+  margin-right: 5px;
+  height: 100%;
+  float: left;
+}
+
+.commenter-image img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.comment-text p {
+  margin: 0;
+  color: darkslategrey;
+}
+
+.sub-text {
+  color: #aaa;
+  font-family: verdana;
+  font-size: 11px;
+}
+
+.action-box {
+  border-top: 1px dotted #bbb;
+  padding: 10px;
+}
+
+.mr-10 {
+  margin-right: 10%;
+}
+
+.mt-10{
+  margin-top: 10% !important;
+}

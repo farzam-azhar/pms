@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :projects do
     resources :payments, only: [:new, :create, :edit, :update, :destroy]
     resources :assignments, only: [:new, :create, :edit, :update, :destroy]
+    resources :comments, shallow: true
   end
   resources :time_logs
 end

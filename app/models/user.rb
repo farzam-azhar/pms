@@ -18,6 +18,7 @@ class User < ApplicationRecord
   has_many :working_projects, through: :assignments, source: :project
   has_many :time_logs, dependent: :destroy
   has_many :logged_projects, through: :time_logs, source: :project
+  has_many :comments
 
   validates :username, presence: true, length: { in: 6..15 }, uniqueness: true
   validates :contact, format: { 
@@ -65,5 +66,9 @@ class User < ApplicationRecord
 
   def get_projects
     self.manager? ? Project.all : self.working_projects
+  end
+
+  def has_managerial_rights?
+    self.manager? || self.admin?
   end
 end

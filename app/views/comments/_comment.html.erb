@@ -1,0 +1,13 @@
+<li id="comment-row-<%= comment.id %>">
+  <div class="commenter-image">
+    <%= image_tag comment.user.image %>
+  </div>
+  <div class="comment-text">
+    <div>
+      <p><%= comment.content %></p>
+    </div>
+    <span class="date sub-text"><%= comment.created_at.to_s(:long) %></span>
+    <%= render 'comments/links', comment: comment if comment.valid_user?(current_user) %>
+  </div>
+  <hr />
+</li>

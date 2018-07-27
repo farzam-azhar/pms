@@ -2,3 +2,22 @@
   <%= render 'payments_table.html.erb' if valid_role? %>
   <%= render 'assignments_table' %>
 </div>
+<hr />
+
+<div class="row">
+  <div class="ml-3">
+    <h2>Comments</h2>
+  </div>
+
+  <div class="detail-box">
+    <div class="title-box">
+      <label>Add Your Comments Here</label>
+    </div>
+    <div class="action-box">
+      <ul class="comment-list" id="comments">
+        <%= render @project.comments %>
+      </ul>
+      <%= comment_form(@project) %>
+    </div>
+  </div>
+</div>

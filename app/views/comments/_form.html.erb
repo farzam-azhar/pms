@@ -1,0 +1,5 @@
+<div id="comment-errors"></div>
+<%= simple_form_for render_action(comment, project), remote: true, class: 'form-inline' do |f| %>
+  <%= f.input :content, as: :text, input_html: { class: 'form-control w-80', required: true, placeholder: 'Type Your Comment', rows: 3 } %>
+  <%= f.submit class: 'btn btn-success' %>
+<% end %>
