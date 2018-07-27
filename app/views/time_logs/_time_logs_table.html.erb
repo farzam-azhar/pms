@@ -10,7 +10,9 @@
               <th>Date</th>
               <th>Start Time</th>
               <th>End Time</th>
-              <th>Options</th>
+              <% if is_not_admin?(current_user)  %>
+                <th>Options</th>
+              <% end %>
             </tr>
           </thead>
           <tbody id="time-logs">

@@ -4,5 +4,8 @@
   <td><%= time_log.created_at.strftime("%m-%d-%Y") %></td>
   <td><%= time_log.start_time %></td>
   <td><%= time_log.end_time %></td>
-  <td><%= render 'time_logs/links', time_log: time_log %></td>
+  <% if is_not_admin?(current_user) %>
+    <td><%= render_options(time_log) %></td>
+  <% end %>
+
 </tr>

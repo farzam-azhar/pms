@@ -11,4 +11,8 @@ class TimeLog < ApplicationRecord
       errors.add(:end_time, "must be at-least 30 minutes after start time")
     end
   end
+
+  def valid_user?(user)
+    self.user == user
+  end
 end

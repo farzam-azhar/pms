@@ -1,5 +1,8 @@
 class TimeLogsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy, :update]
   before_action :find_time_log, only: [:edit, :update, :destroy]
+  before_action :validate_user, only: [:edit, :update, :destroy]
+  before_action :get_projects, only: [:edit, :new]
   respond_to :html, :js
 
   def index
@@ -37,5 +40,13 @@ class TimeLogsController < ApplicationController
 
     def find_time_log
       @time_log = TimeLog.find params[:id]
+    end
+
+    def validate_user
+      redirect_to time_logs_path, alert: 'You are not authorized to perform this action.' if !@time_log.valid_user?(current_user)
+    end
+
+    def get_projects
+      @projects = current_user.get_projects
     end
 end

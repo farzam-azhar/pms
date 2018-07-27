@@ -62,4 +62,8 @@ class User < ApplicationRecord
   def to_s
     username
   end
+
+  def get_projects
+    self.manager? ? Project.all : self.working_projects
+  end
 end
