@@ -1,8 +1,0 @@
-<% unless @project.errors.present? %>
-  $('#project-modal').modal('toggle');
-  $("#projects").append("<%= j render @project %>");
-  $("#project-<%= @project.id %>").hide().fadeIn(1000);
-<% else %>
-  $('#project-error').empty();
-  $('#project-error').append("<%= j render 'shared/errors', resource: @project, resource_name: 'Project' %>");
-<% end %>

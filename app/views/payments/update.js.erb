@@ -1,9 +1,0 @@
-<% unless @payment.errors.present? %>
-  $('#payment-modal').modal('toggle');
-  $("#payment-row-<%= @payment.id %>").fadeOut(200).fadeIn(500, function(){
-    $(this).replaceWith("<%= j render @payment, project: @project %>");
-  });
-<% else %>
-  $('#payment-error').empty();
-  $('#payment-error').append("<%= j render 'shared/errors', resource: @payment, resource_name: 'Payment' %>");
-<% end %>

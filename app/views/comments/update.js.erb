@@ -1,9 +1,0 @@
-<% if @comment.errors.present? %>
-  $('#comment-errors').empty();
-  $('#comment-errors').append("<%= j render 'shared/errors', resource: @comment, resource_name: 'Comment' %>");
-<% else %>
-  $('#comment-modal').modal('toggle');
-  $("#comment-row-<%= @comment.id %>").fadeOut(200).fadeIn(500, function() {
-    $(this).replaceWith("<%= j render @comment %>");
-  });
-<% end %>

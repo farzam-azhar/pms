@@ -1,8 +1,0 @@
-<% unless @payment.errors.present? %>
-  $('#payment-modal').modal('toggle');
-  $("#payments").append("<%= j render @payment %>");
-  $("#payment-row-<%= @payment.id %>").hide().fadeIn(1000);
-<% else %>
-  $('#payment-error').empty();
-  $('#payment-error').append("<%= j render 'shared/errors', resource: @payment, resource_name: 'Payment' %>");
-<% end %>

@@ -1,9 +1,0 @@
-<% unless @client.errors.present? %>
-  $('#client-modal').modal('toggle');
-  $("#client-<%= @client.id %>").fadeOut(200).fadeIn(500, function(){
-    $(this).replaceWith("<%= j render @client %>");
-  });
-<% else %>
-  $('#client_error').empty();
-  $('#client_error').append("<%= j render 'shared/errors', resource: @client, resource_name: 'Client' %>");
-<% end %>

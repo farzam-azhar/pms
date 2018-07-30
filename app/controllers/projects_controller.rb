@@ -8,31 +8,62 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    respond_with @project
+    respond_to do |format|
+      format.js { render 'shared/edit', locals: { object: @project, modal: 'project-modal', project: nil } }
+    end
   end
 
   def create
     @project = Project.create(project_params)
-    respond_with @project
+    respond_to do |format|
+      format.js {
+        render 'shared/create',
+        locals: {
+          object: @project,
+          error_div: 'project-error',
+          modal: 'project-modal',
+          objects_div: 'projects',
+          object_row: "project-#{@project.id}"
+        }
+      }
+    end
   end
 
   def show
   end
 
   def edit
-    respond_with @project
+    respond_to do |format|
+      format.js { render 'shared/edit', locals: { object: @project, modal: 'project-modal', project: nil } }
+    end
   end
 
   def update
     @project.update_attributes(project_params)
-    respond_with @project
+    respond_to do |format|
+      format.js {
+        render 'shared/update',
+        locals: {
+          object: @project,
+          error_div: 'project-error',
+          modal: 'project-modal',
+          object_row: "project-#{@project.id}"
+        }
+      }
+    end
   end
 
   def destroy
-    if @project.destroy
-      respond_with @project
-    else
-      redirect_to projects_path, alert: "Something went Wrong while Deleting Project"
+    @project.destroy
+    respond_to do |format|
+      format.js {
+        render 'shared/destroy',
+        locals: {
+          object: @project,
+          error_div: 'project-error',
+          object_row: "project-#{@project.id}"
+        }
+      }
     end
   end
 

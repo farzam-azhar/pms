@@ -2,13 +2,13 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4 class="modal-title"><%= modal_form_header(time_log) %> Time Log</h4>
+      <h4 class="modal-title"><%= modal_form_header(object) %> Time Log</h4>
     </div>
     <div class="modal-body">
       <div id="time-logs-error"></div>
 
-      <%= simple_form_for time_log, remote: true do |f| %>
-        <%= f.association :project, as: :select, collection: projects, input_html: { required: true }, prompt: 'Select Project' %>
+      <%= simple_form_for object, remote: true do |f| %>
+        <%= f.association :project, as: :select, collection: project, input_html: { required: true }, prompt: 'Select Project' %>
         <div class="form-group">
           <%= f.label :start_time %>
           <%= f.text_field :start_time, class: 'form-control datetimepicker', placeholder: 'Click to Select Time', autocomplete: 'off', required: true %>

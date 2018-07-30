@@ -1,0 +1,8 @@
+<% if object.errors.present? %>
+  $("#<%= error_div %>").empty();
+  $('#<%= error_div %>').append("<%= j render 'shared/errors', resource: object, resource_name: object.class.name.capitalize %>");
+<% else %>
+  $("#<%= modal %>").modal('toggle');
+  $("#<%= objects_div %>").append("<%= j render object %>");
+  $("#<%= object_row %>").hide().fadeIn(1000);
+<% end %>

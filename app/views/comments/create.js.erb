@@ -1,8 +1,8 @@
 <% if @comment.errors.present? %>
-  $('#comment-errors').empty()
+  $('#comment-errors').empty();
   $('#comment-errors').append("<%= j render 'shared/errors', resource: @comment, resource_name: 'Comment' %>");
 <% else %>
   $("#comments").append("<%= j render @comment %>");
   $("#comment-row-<%= @comment.id %>").hide().fadeIn(1000);
-  $("#comment_content").val('')
+  $("#comment_content").val('');
 <% end %>

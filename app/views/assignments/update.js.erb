@@ -1,9 +1,0 @@
-<% unless @assignment.errors.present? %>
-  $('#assignment-modal').modal('toggle');
-  $("#assigned-user-row-<%= @assignment.id %>").fadeOut(200).fadeIn(500, function(){
-    $(this).replaceWith("<%= j render @assignment, project: @project %>");
-  });
-<% else %>
-  $('#assignment-error').empty();
-  $('#assignment-error').append("<%= j render 'shared/errors', resource: @assignment, resource_name: 'Assignment' %>");
-<% end %>

@@ -5,28 +5,59 @@ class AssignmentsController < ApplicationController
 
   def new
     @assignment = @project.assignments.build
-    respond_with @assignment
+    respond_to do |format|
+      format.js { render 'shared/edit', locals: { object: @assignment, modal: 'assignment-modal', project: @project } }
+    end
   end
 
   def create
     @assignment = @project.assignments.create(assignment_params)
-    respond_with @assignment
+    respond_to do |format|
+      format.js {
+        render 'shared/create',
+        locals: {
+          object: @assignment,
+          error_div: 'assignment-error',
+          modal: 'assignment-modal',
+          objects_div: 'assignments',
+          object_row: "assigned-user-row-#{@assignment.id}"
+        }
+      }
+    end
   end
 
   def edit
-    respond_with @assignment
+    respond_to do |format|
+      format.js { render 'shared/edit', locals: { object: @assignment, modal: 'assignment-modal', project: @project } }
+    end
   end
 
   def update
     @assignment.update(assignment_params)
-    respond_with @assignment
+    respond_to do |format|
+      format.js {
+        render 'shared/update',
+        locals: {
+          object: @assignment,
+          error_div: 'assignment-error',
+          modal: 'assignment-modal',
+          object_row: "assigned-user-row-#{@assignment.id}"
+        }
+      }
+    end
   end
 
   def destroy
-    if @assignment.destroy
-      respond_with @assignment
-    else
-      redirect_to project_path(@project), alert: "Something went Wrong while removing user from this Project"
+    @assignment.destroy
+    respond_to do |format|
+      format.js {
+        render 'shared/destroy',
+        locals: {
+          object: @assignment,
+          error_div: 'assignment-error',
+          object_row: "assigned-user-row-#{@assignment.id}"
+        }
+      }
     end
   end
 

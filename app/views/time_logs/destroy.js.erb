@@ -1,8 +1,0 @@
-<% if @time_log.errors.present? %>
-  $('#time-logs-index-error').empty();
-  $('#time-logs-index-error').append("<%= j render 'shared/errors', resource: @time_log, resource_name: 'Time Log' %>");
-<% else %>
-  $("#time-log-row-<%= @time_log.id %>").fadeOut(2000, function(){
-    $(this).remove();
-  });
-<% end %>

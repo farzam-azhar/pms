@@ -1,0 +1,8 @@
+<% if object.errors.present? %>
+  $('#<%= error_div %>').empty();
+  $('#<%= error_div %>').append("<%= j render 'shared/errors', resource: object, resource_name: object.class.name.capitalize %>");
+<% else %>
+  $("#<%= object_row %>").fadeOut(2000, function() {
+    $(this).remove();
+  });
+<% end %>

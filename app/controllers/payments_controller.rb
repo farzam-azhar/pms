@@ -5,30 +5,61 @@ class PaymentsController < ApplicationController
 
   def new
     @payment = @project.payments.build
-    respond_with @payment
+    respond_to do |format|
+      format.js { render 'shared/edit', locals: { object: @payment, modal: 'payment-modal', project: @project } }
+    end
   end
 
   def create
     @payment = @project.payments.build(payment_params)
     @payment.created_by = current_user
     @payment.save
-    respond_with @payment
+    respond_to do |format|
+      format.js {
+        render 'shared/create',
+        locals: {
+          object: @payment,
+          error_div: 'payment-error',
+          modal: 'payment-modal',
+          objects_div: 'payments',
+          object_row: "payment-row-#{@payment.id}"
+        }
+      }
+    end
   end
 
   def edit
-    respond_with @payment
+    respond_to do |format|
+      format.js { render 'shared/edit', locals: { object: @payment, modal: 'payment-modal', project: @project } }
+    end
   end
 
   def update
     @payment.update(payment_params)
-    respond_with @payment
+    respond_to do |format|
+      format.js {
+        render 'shared/update',
+        locals: {
+          object: @payment,
+          error_div: 'payment-error',
+          modal: 'payment-modal',
+          object_row: "payment-row-#{@payment.id}"
+        }
+      }
+    end
   end
 
   def destroy
-    if @payment.destroy
-      respond_with @payment
-    else
-      redirect_to project_path(@project), alert: "Something went Wrong while Deleting a Payment"
+    @payment.destroy
+    respond_to do |format|
+      format.js {
+        render 'shared/destroy',
+        locals: {
+          object: @payment,
+          error_div: 'payment-error',
+          object_row: "payment-row-#{@payment.id}"
+        }
+      }
     end
   end
 

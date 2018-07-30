@@ -1,0 +1,9 @@
+<% if object.errors.present? %>
+  $('#<%= error_div %>').empty();
+  $('#<%= error_div %>').append("<%= j render 'shared/errors', resource: object, resource_name: object.class.name.capitalize %>");
+<% else %>
+  $('#<%= modal %>').modal('toggle');
+  $("#<%= object_row %>").fadeOut(200).fadeIn(500, function() {
+    $(this).replaceWith("<%= j render object %>");
+  });
+<% end %>

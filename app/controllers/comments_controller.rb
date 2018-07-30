@@ -11,17 +11,38 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    respond_with @comment
+    respond_to do |format|
+      format.js { render 'shared/edit', locals: { object: @comment, modal: 'comment-modal', project: nil } }
+    end
   end
 
   def update
     @comment.update(comment_params)
-    respond_with @comment
+    respond_to do |format|
+      format.js {
+        render 'shared/update',
+        locals: {
+          object: @comment,
+          error_div: 'comment-errors',
+          modal: 'comment-modal',
+          object_row: "comment-row-#{@comment.id}"
+        }
+      }
+    end
   end
 
   def destroy
     @comment.destroy
-    respond_with @comment
+    respond_to do |format|
+      format.js {
+        render 'shared/destroy',
+        locals: {
+          object: @comment,
+          error_div: 'comment-errors',
+          object_row: "comment-row-#{@comment.id}"
+        }
+      }
+    end
   end
 
   private
