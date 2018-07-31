@@ -1,0 +1,9 @@
+<%= f.simple_fields_for :attachments, html: { multipart: true } do |a| %>
+  <ul class="sidebar-nav">
+    <li><%= a.input :data, input_html: { class: 'form-control' }, label: false %></li>
+    <li class="file-name">
+      <%= a.object.data.present? ? a.object.data_file_name : 'New Attachment' %>
+    </li>
+    <li><%= a.link_to_remove "Remove this Attachment", class: 'btn btn-default' %></li>
+  </ul>
+<% end %>

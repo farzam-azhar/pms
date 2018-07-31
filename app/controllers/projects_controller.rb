@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @project.attachments.build
     respond_to do |format|
       format.js { render 'shared/edit', locals: { object: @project, modal: 'project-modal', project: nil } }
     end
@@ -70,7 +71,7 @@ class ProjectsController < ApplicationController
   private
 
     def project_params
-      params.require(:project).permit(:title, :estimated_price, :end_date, :description, :client_id, :status)
+      params.require(:project).permit(:title, :estimated_price, :end_date, :description, :client_id, :status, attachments_attributes: [:id, :data, :_destroy])
     end
 
     def set_project

@@ -268,3 +268,30 @@ div .second-p {
   color: mediumvioletred;
   text-decoration: none !important;
 }
+
+.sidebar-nav {
+  column-count: 3;
+  list-style: none;
+  margin-left: -7%;
+}
+
+.file-name {
+  text-decoration: underline;
+  text-align: center;
+  padding: 8px;
+}
+
+.file-style {
+  margin-left: 27%;
+  border: 2px solid lightslategrey;
+  border-radius: 3px;
+  font-weight: 600;
+  text-decoration: none;
+  color: darkslategray;
+  margin-bottom: 5%;
+  list-style: none;
+}
+
+.no-underline {
+  text-decoration: none !important;
+}

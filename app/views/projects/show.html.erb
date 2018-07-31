@@ -37,6 +37,16 @@
           <p class="second-p"><%= @project.description %></p>
         </div>
       </div>
+
+      <hr />
+      <div class="row">
+        <div class="col-md-10">
+          <p class="first-p">Attachments</p>
+          <div class="mt-4">
+            <p class="second-p"> <%= project_attachments(@project) %> </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <hr />

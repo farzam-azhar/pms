@@ -4,4 +4,12 @@ module ProjectsHelper
       "<span class='glyphicon glyphicon-plus'></span> Create New Project".html_safe
     end
   end
+
+  def project_attachments(project)
+    if project.attachments.present?
+      render project.attachments
+    else
+      'No Attachments Yet.'
+    end
+  end
 end

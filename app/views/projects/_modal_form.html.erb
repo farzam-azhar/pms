@@ -7,7 +7,7 @@
     <div class="modal-body">
       <div id="project-error"></div>
 
-      <%= simple_form_for object, remote: true do |f| %>
+      <%= simple_nested_form_for object, remote: true do |f| %>
         <%= f.association :client, include_blank: 'Select Client' %>
         <%= f.input :title, input_html: { required: true } %>
         <%= f.input :estimated_price, input_html: { required: true, min: 0 }, label: 'Estimated Price in USD' %>
@@ -17,6 +17,11 @@
         </div>
         <%= f.input :status, as: :select, collection: Project.statuses.keys.first(2), label_method: lambda { |status| status.humanize }, include_blank: 'Select Project Status', input_html: { required: true } %>
         <%= f.input :description, as: :text, input_html: { rows: 8 } %>
+        <%= render "nested_attachments", f: f %>
+        <center>
+          <%= f.link_to_add "Add Attachment", :attachments, class: 'btn btn-primary btn-block' %>
+        </center>
+        <br />
         <%= f.submit class: 'btn btn-success' %>
       <% end %>
     </div>

@@ -11,6 +11,8 @@ class Project < ApplicationRecord
   has_many :time_logs, dependent: :destroy
   has_many :logged_users, through: :time_logs, source: :user
   has_many :comments, dependent: :destroy
+  has_many :attachments, dependent: :destroy, as: :attachable, inverse_of: :attachable
+  accepts_nested_attributes_for :attachments, allow_destroy: true
 
   validates :title, presence: true
   validates :estimated_price, presence: true
