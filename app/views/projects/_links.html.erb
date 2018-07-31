@@ -2,4 +2,4 @@
   <span class="glyphicon glyphicon-edit mr-8px"></span>
 <% end %>
 
-<%= link_to '&times;'.html_safe, project, method: :delete, class: 'close crimson-color', data: { dismiss: "alert", toggle: "tooltip", confirm: 'Are you sure?' }, title: 'Remove Project from System', aria: { label: "close" }, remote: true %>
+<%= link_to ''.html_safe, mark_completed_project_path(project), class: 'glyphicon glyphicon-send medium-violetred-color', data: { dismiss: "alert", toggle: "tooltip", confirm: 'Are you sure?' }, title: 'Mark this Project Complete', aria: { label: "close" }, remote: true %>

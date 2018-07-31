@@ -2,4 +2,4 @@
   <span class="glyphicon glyphicon-edit mr-8px"></span>
 <% end %>
         
-<%= link_to '&times;'.html_safe, client, method: :delete, class: 'close crimson-color', data: { dismiss: "alert", toggle: "tooltip", confirm: 'Are you sure?' }, title: 'Remove Client from System', aria: { label: "close" }, remote: true %>
+<%= link_to '&times;'.html_safe, update_status_client_path(client), class: 'close crimson-color', data: { dismiss: "alert", toggle: "tooltip", confirm: 'Are you sure?' }, title: 'Disable Client', aria: { label: "close" }, remote: true %>

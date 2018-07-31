@@ -15,6 +15,7 @@
           <%= f.label :end_date %>
           <%= f.text_field :end_date, class: 'form-control', id: 'datetimepicker1', placeholder: 'Click to Select Date', autocomplete: 'off' %>
         </div>
+        <%= f.input :status, as: :select, collection: Project.statuses.keys.first(2), label_method: lambda { |status| status.humanize }, include_blank: 'Select Project Status', input_html: { required: true } %>
         <%= f.input :description, as: :text, input_html: { rows: 8 } %>
         <%= f.submit class: 'btn btn-success' %>
       <% end %>

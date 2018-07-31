@@ -1,5 +1,6 @@
+
 class ClientsController < ApplicationController
-  before_action :set_client, only: [:destroy, :edit, :update]
+  before_action :set_client, only: [:destroy, :edit, :update, :update_status]
   respond_to :html, :js
   
   def index
@@ -50,8 +51,8 @@ class ClientsController < ApplicationController
     end
   end
   
-  def destroy
-    @client.destroy
+  def update_status
+    @client.toggle_status!
     respond_to do |format|
       format.js {
         render 'shared/destroy',

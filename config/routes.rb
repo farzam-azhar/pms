@@ -14,8 +14,11 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :clients
+  resources :clients do
+    get 'update_status', on: :member
+  end
   resources :projects do
+    get 'mark_completed', on: :member
     resources :payments, only: [:new, :create, :edit, :update, :destroy]
     resources :assignments, only: [:new, :create, :edit, :update, :destroy]
     resources :comments, shallow: true

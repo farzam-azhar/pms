@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:destroy, :edit, :update, :show]
+  before_action :set_project, only: [:destroy, :edit, :update, :show, :mark_completed]
   respond_to :html, :js
 
   def index
@@ -53,8 +53,8 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def destroy
-    @project.destroy
+  def mark_completed
+    @project.completed!
     respond_to do |format|
       format.js {
         render 'shared/destroy',
@@ -70,7 +70,7 @@ class ProjectsController < ApplicationController
   private
 
     def project_params
-      params.require(:project).permit(:title, :estimated_price, :end_date, :description, :client_id)
+      params.require(:project).permit(:title, :estimated_price, :end_date, :description, :client_id, :status)
     end
 
     def set_project
