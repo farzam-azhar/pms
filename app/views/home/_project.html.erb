@@ -1,0 +1,9 @@
+<div class="col-md-4 mb-5" id="project-<%= project.id %>">
+  <div class="card unset-height">
+    <div class="card_container card-padding">
+      <h4><b><%= project.title %></b></h4>
+      <p> <strong> Earnings: </strong> $<%= project.total_earnings %></p>
+    </div>
+    <a href="<%= project_path(project) %>" class="btn btn-info btn-sm btn-block">Details</a>
+  </div>
+</div>

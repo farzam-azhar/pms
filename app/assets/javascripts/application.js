@@ -16,5 +16,8 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require jquery_nested_form
+//= require Chart.bundle
+//= require highcharts
+//= require chartkick
 //= require jquery.turbolinks
 //= require_tree .

@@ -13,7 +13,14 @@ Rails.application.routes.draw do
       end
     end
   end
-  
+
+  namespace 'charts' do
+    get 'current_month_earnings'
+    get 'current_month_time_logs'
+    get 'by_month_earnings'
+    get 'by_month_logs'
+  end
+
   resources :clients do
     get 'update_status', on: :member
   end
