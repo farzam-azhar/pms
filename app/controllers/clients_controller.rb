@@ -1,6 +1,6 @@
 
 class ClientsController < ApplicationController
-  before_action :set_client, only: [:destroy, :edit, :update, :update_status]
+  before_action :set_client, only: [:destroy, :edit, :update, :update_status, :show]
   respond_to :html, :js
   
   def index
@@ -29,7 +29,10 @@ class ClientsController < ApplicationController
       }
     end
   end
-  
+
+  def show
+  end
+
   def edit
     respond_to do |format|
       format.js { render 'shared/edit', locals: { object: @client, modal: 'client-modal', project: nil } }

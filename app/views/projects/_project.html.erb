@@ -2,7 +2,7 @@
   <div class="card h-133">
     <div class="card_container card-padding">
       <div id="icons" class="pull-right mt-4">
-        <%= render 'links', project: project if valid_role? %>
+        <%= render 'projects/links', project: project if valid_role? %>
       </div>
       <h4><b><%= project.title %></b></h4>
       <p>By: <%= project.client.name %></p>

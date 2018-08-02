@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <h1 class="ml-10"><%= @client.name %></h1>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+  <div class="card unset-height">
+    <div class="card_container custom-padding">
+      <div id="icons" class="pull-right mt-4">
+      </div>
+      <div class="row mb-1">
+        <div class="col-md-3"></div>
+        <div class="col-md-4">
+          <p class="first-p">Email</p>
+          <p class="second-p"><%= @client.email %></p>
+        </div>
+
+        <div class="col-md-3">
+          <p class="first-p">Country</p>
+          <p class="second-p"><%= @client.country_name %></p>
+        </div>
+      </div>
+
+      <hr />
+    </div>
+  </div>
+  <hr />
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <h1 class="ml-10">His Projects</h1>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+  <div class="row mt-4">
+    <%= render @client.projects %>
+  </div>
+</div>
