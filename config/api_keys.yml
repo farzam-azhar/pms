@@ -1,0 +1,17 @@
+defaults: &defaults
+  facebook:
+    api_key: "534784393609260"
+    api_secret: "c0c7afeb03b8bae6c2ac18d98d6a9832"
+    redirect_uri: 'https://localhost:3000/users/auth/facebook/callback'
+  google:
+    api_key: '638621465225-j4aovkf12ku20migrip0kr1u7u71kbp6.apps.googleusercontent.com'
+    api_secret: '9jaZc-chH69PZ5H1TWRDdF_l'
+    redirect_uri: 'http://localhost:3000/users/auth/google_oauth2/callback'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:

@@ -258,6 +258,13 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
+  config.omniauth :facebook, API_KEYS['facebook']['api_key'], API_KEYS['facebook']['api_secret'],
+  {scope: 'email, user_gender', info_fields: 'email, name, gender'}
+  {redirect_uri: API_KEYS['facebook']['redirect_uri'], skip_jwt: true}
+
+  config.omniauth :google_oauth2, API_KEYS['google']['api_key'], API_KEYS['google']['api_secret'],
+  { redirect_uri: API_KEYS['google']['redirect_uri'], skip_jwt: true }
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

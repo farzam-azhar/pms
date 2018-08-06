@@ -1,12 +1,15 @@
 class User < ApplicationRecord
   attr_writer :login
+  attr_accessor :provider
+  attr_accessor :uid
   
   enum status: [:enabled, :disabled]
   enum role: [:user, :manager, :admin]
   enum genders: [:Male, :Female]
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :omniauthable,
+         :recoverable, :rememberable, :trackable, :validatable,
+         omniauth_providers: [:facebook, :google_oauth2]
          
   scope :except_admin, -> { where.not(role: :admin) }
   scope :not_assigned_users, -> (project) { all - project.assigned_users }
@@ -19,13 +22,14 @@ class User < ApplicationRecord
   has_many :time_logs, dependent: :destroy
   has_many :logged_projects, through: :time_logs, source: :project
   has_many :comments
+  has_many :user_providers, dependent: :destroy
 
   validates :username, presence: true, length: { in: 6..15 }, uniqueness: true
   validates :contact, format: { 
     with: /((\+92)|(0092))-{0,1}\d{3}-{0,1}\d{7}$|^\d{11}$|^\d{4}-\d{7}$/, multiline: true, 
-    message: 'given format not supported.' 
+    message: 'given format not supported.', unless: -> { from_omniauth? }
   }
-  validates :gender, presence: true, inclusion: { in: self.genders.keys, message: 'You must select Male or Female Only.' }
+  validates :gender, presence: true, inclusion: { in: self.genders.keys, message: 'You must select Male or Female Only.' }, unless: -> { from_omniauth? }
 
   def active_for_authentication?
     super && enabled?
@@ -70,5 +74,9 @@ class User < ApplicationRecord
 
   def has_managerial_rights?
     self.manager? || self.admin?
+  end
+
+  def from_omniauth?
+    provider && uid
   end
 end

@@ -1,5 +1,6 @@
 class Admin::UsersController < Admin::BaseController
   before_action :set_user, only: [:update_status, :update_role]
+  before_action :validate_user_provider, only: [:update_status, :update_role]
 
   def index
     @users = User.except_admin
@@ -29,5 +30,11 @@ class Admin::UsersController < Admin::BaseController
 
     def set_user
       @user = User.find params[:id]
+    end
+
+    def validate_user_provider
+      unless @user.user_providers.empty?
+        @user.provider = @user.uid = true
+      end
     end
 end

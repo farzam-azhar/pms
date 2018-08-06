@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: "users/registrations"}
   root 'home#index'
 
   post 'set_profile_picture', to: 'users#set_profile_picture', as: :set_profile_picture

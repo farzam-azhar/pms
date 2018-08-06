@@ -28,6 +28,10 @@ gem 'jquery-turbolinks'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'chartkick'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

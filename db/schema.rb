@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180730082422) do
+ActiveRecord::Schema.define(version: 20180806071336) do
 
   create_table "assignments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20180730082422) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0, null: false
+    t.boolean "delta", default: true, null: false
     t.index ["email"], name: "index_clients_on_email", unique: true
   end
 
@@ -74,6 +75,7 @@ ActiveRecord::Schema.define(version: 20180730082422) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0, null: false
+    t.boolean "delta", default: true, null: false
     t.index ["client_id"], name: "index_projects_on_client_id"
   end
 
@@ -86,6 +88,15 @@ ActiveRecord::Schema.define(version: 20180730082422) do
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_time_logs_on_project_id"
     t.index ["user_id"], name: "index_time_logs_on_user_id"
+  end
+
+  create_table "user_providers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id"
+    t.string "provider"
+    t.string "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_providers_on_user_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -119,4 +130,5 @@ ActiveRecord::Schema.define(version: 20180730082422) do
   add_foreign_key "projects", "clients"
   add_foreign_key "time_logs", "projects"
   add_foreign_key "time_logs", "users"
+  add_foreign_key "user_providers", "users"
 end
