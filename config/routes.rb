@@ -21,6 +21,17 @@ Rails.application.routes.draw do
     get 'by_month_logs'
   end
 
+  namespace 'api', format: :json do
+    namespace 'v1' do
+      post 'auth', to: 'authentication#create'
+      resources :clients
+      resources :projects do
+        get 'search', on: :collection
+      end
+    resources :time_logs
+    end
+  end
+
   resources :clients do
     get 'update_status', on: :member
   end

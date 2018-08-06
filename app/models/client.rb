@@ -11,7 +11,7 @@ class Client < ApplicationRecord
   has_many :projects
 
   def country_name
-    ISO3166::Country[country_code]
+    ISO3166::Country[country_code].name
   end
 
   def toggle_status!
