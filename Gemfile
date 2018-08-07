@@ -30,8 +30,6 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'chartkick'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-gem 'bootstrap-social-rails'
-gem 'font-awesome-rails'
 gem 'active_model_serializers'
 gem 'jwt'
 
