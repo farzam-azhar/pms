@@ -32,6 +32,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'active_model_serializers'
 gem 'jwt'
+gem "pundit"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

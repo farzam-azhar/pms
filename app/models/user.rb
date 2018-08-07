@@ -69,7 +69,7 @@ class User < ApplicationRecord
   end
 
   def get_projects
-    self.manager? ? Project.all : self.working_projects
+    self.has_managerial_rights? ? Project.all : self.working_projects
   end
 
   def has_managerial_rights?
