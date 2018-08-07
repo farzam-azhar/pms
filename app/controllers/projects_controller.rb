@@ -8,7 +8,6 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    @project.attachments.build
     respond_to do |format|
       format.js { render 'shared/edit', locals: { object: @project, modal: 'project-modal', project: nil } }
     end
