@@ -50,7 +50,7 @@ class Project < ApplicationRecord
   validates :title, presence: true
   validates :estimated_price, presence: true
   validates :end_date, presence: true
-  validates :description, length: { in: 15..550 }
+  validates :description, presence: true
   validates :status, presence: true, inclusion: { in: self.statuses.keys }
 
 
