@@ -10,7 +10,7 @@
               <th>Date</th>
               <th>Start Time</th>
               <th>End Time</th>
-              <% if is_not_admin?(current_user)  %>
+              <% if policy(TimeLog).update?  %>
                 <th>Options</th>
               <% end %>
             </tr>
