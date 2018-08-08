@@ -14,17 +14,17 @@ class Project < ApplicationRecord
     unscoped.joins(:time_logs).
     where('time_logs.created_at >= ? AND time_logs.created_at <= ?', Date.today.beginning_of_month, Date.today.end_of_month).
     group('projects.id').
-    sum('time_logs.end_time - time_logs.start_time')
+    sum("end_time - start_time")
   }
   scope :by_month_earnings, -> {
     unscoped.joins(:payments).
-    group('MONTHNAME(payments.created_at)').
+    group('extract(month from payments.created_at)').
     sum('payments.amount')
   }
   scope :by_month_logs, -> {
     unscoped.joins(:time_logs).
-    group('MONTHNAME(time_logs.created_at)').
-    sum('time_logs.end_time - time_logs.start_time')
+    group('extract(month from time_logs.created_at)').
+    sum("extract(epoch from TO_TIMESTAMP(time_logs.end_time::timestamp, 'HH24:MI:SS')::TIME - TO_TIMESTAMP(time_logs.start_time::timestamp, 'HH24:MI:SS')::TIME)::integer/60")
   }
 
   def self.search(title, client_name, assigned_user_name, description)

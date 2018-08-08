@@ -35,6 +35,11 @@ gem 'jwt'
 gem "pundit"
 gem 'ckeditor'
 
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
