@@ -34,6 +34,8 @@ gem 'active_model_serializers'
 gem 'jwt'
 gem "pundit"
 gem 'ckeditor'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
+  PER_PAGE = 6
+
   enum status: [:pending, :in_progress, :completed]
 
   default_scope { where.not(status: :completed) }

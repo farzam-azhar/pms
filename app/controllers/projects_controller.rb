@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   respond_to :html, :js
 
   def index
-    @projects = Project.all
+    @projects = Project.all.page(params[:page]).per(Project::PER_PAGE)
   end
 
   def new

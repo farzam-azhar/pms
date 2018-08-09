@@ -1,4 +1,6 @@
 class Client < ApplicationRecord
+  PER_PAGE = 6
+
   enum status: [:enabled, :disabled]
 
   validates :name, presence: true, length: { in: 5..15 }

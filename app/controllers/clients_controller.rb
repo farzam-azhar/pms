@@ -4,7 +4,7 @@ class ClientsController < ApplicationController
   respond_to :html, :js
   
   def index
-    @clients = Client.all
+    @clients = Client.all.page(params[:page]).per(Client::PER_PAGE)
   end
   
   def new
