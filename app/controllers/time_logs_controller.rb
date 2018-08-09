@@ -18,7 +18,9 @@ class TimeLogsController < ApplicationController
   end
 
   def create
-    @time_log = current_user.time_logs.create(time_log_params)
+    @time_log = current_user.time_logs.build(time_log_params)
+    @time_log.hours = ( @time_log.end_time.to_time - @time_log.start_time.to_time ) / 3600
+    @time_log.save
     authorize @time_log
     respond_to do |format|
       format.js {
@@ -41,7 +43,9 @@ class TimeLogsController < ApplicationController
   end
 
   def update
-    @time_log.update(time_log_params)
+    @time_log.assign_attributes(time_log_params)
+    @time_log.hours = ( @time_log.end_time.to_time - @time_log.start_time.to_time ) / 3600
+    @time_log.save
     respond_to do |format|
       format.js {
         render 'shared/update',
