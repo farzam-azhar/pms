@@ -30,6 +30,15 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        send_data @project.pdf(view_context).render,
+                  filename: "Project-#{@project.id}.pdf",
+                  type: "application/pdf",
+                  disposition: "inline"
+      end
+    end
   end
 
   def edit
