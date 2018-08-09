@@ -5,8 +5,11 @@
       <h4 class="modal-title"><%= modal_form_header(object) %> Comment</h4>
     </div>
     <div class="modal-body">
+      <div id="comments">
+        <%= render partial: 'latest_comments', collection: project.comments.last(5), as: :comment unless object.persisted? %>
+      </div>
       <div id="assignment-error"></div>
-      <%= render 'form', comment: object, project: project %>
+      <%= render 'form', comment: object, project: project, hidden_value: 'latest_comment' %>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
