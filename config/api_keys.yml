@@ -15,4 +15,11 @@ test:
   <<: *defaults
 
 production:
-  <<: *defaults
+  facebook:
+    api_key: "2012269379083257"
+    api_secret: "66b0ffea23cfc16d6d12ca0729a0910d"
+    redirect_uri: 'https://pms-demo.herokuapp.com/users/auth/facebook/callback'
+  google:
+    api_key: "638621465225-4j1ba0cpdksrjgfhmaf2b0o97r7ovtkq.apps.googleusercontent.com"
+    api_secret: "xWICCGd1xwZfSp0_ZO3RV4AU"
+    redirect_uri: 'https://pms-demo.herokuapp.com/users/auth/google_oauth2/callback'
