@@ -19,6 +19,7 @@
 //= require Chart.bundle
 //= require highcharts
 //= require chartkick
+//= require sweetalert
 //= require ckeditor/init
 //= require jquery.turbolinks
 //= require_tree .
