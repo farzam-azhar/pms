@@ -61,7 +61,7 @@ class User < ApplicationRecord
   end
 
   def image(size = :thumb)
-    image = self.photo.present? ? self.photo.data.url(size) : 'default'
+    image = self.photo.present? ? self.photo.data.url(size) : 'default.png'
   end
 
   def to_s
