@@ -14,6 +14,8 @@ class User < ApplicationRecord
   scope :except_admin, -> { where.not(role: :admin) }
   scope :not_assigned_users, -> (project) { all - project.assigned_users }
 
+  after_create :send_admin_mail
+
   has_one :photo, class_name: 'Attachment', as: :attachable
   accepts_nested_attributes_for :photo
 
@@ -79,5 +81,9 @@ class User < ApplicationRecord
 
   def from_omniauth?
     provider && uid
+  end
+
+  def send_admin_mail
+    AdminMailer.delay.user_created_notification(self)
   end
 end

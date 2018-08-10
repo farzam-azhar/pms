@@ -38,6 +38,7 @@ gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'prawn'
 gem 'prawn-table'
+gem 'delayed_job_active_record'
 
 group :production do
   gem 'rails_12factor'

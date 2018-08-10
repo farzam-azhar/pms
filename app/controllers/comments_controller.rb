@@ -14,7 +14,9 @@ class CommentsController < ApplicationController
 
   def create
     @check = params[:name] == 'latest_comment' ? true : false
-    @comment = @project.comments.create(comment_params)
+    @comment = @project.comments.build(comment_params)
+    @comment.signed_in_user = current_user
+    @comment.save
     respond_with @comment
   end
 
