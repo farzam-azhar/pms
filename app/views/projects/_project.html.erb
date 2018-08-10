@@ -2,6 +2,11 @@
   <div class="card h-133">
     <div class="card_container card-padding">
       <div id="icons" class="pull-right mt-4">
+        <% if user_signed_in? %>
+          <%= link_to new_project_comment_path(project), remote: true, data: { toggle: "tooltip" }, title: 'Add Comment' do %>
+            <span class="glyphicon glyphicon-comment mr-8px"></span>
+          <% end %>
+        <% end %>
         <%= render 'projects/links', project: project if valid_role? %>
       </div>
       <h4><b><%= project.title %></b></h4>

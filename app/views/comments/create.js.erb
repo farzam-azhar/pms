@@ -2,7 +2,11 @@
   $('#comment-errors').empty();
   $('#comment-errors').append("<%= j render 'shared/errors', resource: @comment, resource_name: 'Comment' %>");
 <% else %>
-  $("#comments").append("<%= j render @comment %>");
+  <% unless @check %>
+    $("#comments").append("<%= j render @comment %>");
+  <% else %>
+    $("#comments").append("<%= j render partial: 'latest_comments', locals: { comment: @comment } %>");
+  <% end %>
   $("#comment-row-<%= @comment.id %>").hide().fadeIn(1000);
   $("#comment_content").val('');
 <% end %>
