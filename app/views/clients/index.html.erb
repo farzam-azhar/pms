@@ -11,6 +11,8 @@
   <div class="row" id="clients">
     <%= render @clients %>
   </div>
-  
+
+  <%= render 'shared/paginator', objects: @clients %>
+
   <div id="client-modal" class="modal fade" role="dialog"></div>
 </div>

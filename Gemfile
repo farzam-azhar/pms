@@ -34,6 +34,8 @@ gem 'active_model_serializers'
 gem 'jwt'
 gem "pundit"
 gem 'ckeditor'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 group :production do
   gem 'rails_12factor'

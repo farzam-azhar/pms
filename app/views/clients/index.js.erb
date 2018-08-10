@@ -1,0 +1,4 @@
+$('#clients').fadeOut(200, function() {
+  $(this).html('<%= j render @clients %>').show('slow')
+});
+$('#paginator').html("<%= escape_javascript paginate @clients, theme: 'twitter-bootstrap-3', remote: true %>")
