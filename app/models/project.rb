@@ -77,4 +77,8 @@ class Project < ApplicationRecord
     bind_values[:description] = "%#{description.downcase}%" if description.present?
     bind_values
   end
+
+  def pdf(view_context)
+    ProjectPdf.new(self, view_context)
+  end
 end
