@@ -3,4 +3,7 @@ class HomeController < ApplicationController
     @top_projects = Project.top_projects.first(5)
     @bottom_projects = Project.bottom_projects.first(5)
   end
+
+  def privacy
+  end
 end

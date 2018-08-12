@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: "users/registrations"}
   root 'home#index'
 
+  get 'privacy', to: 'home#privacy', as: 'privacy'
+
   post 'set_profile_picture', to: 'users#set_profile_picture', as: :set_profile_picture
   
   namespace 'admin' do
